@@ -5,7 +5,7 @@
     "description": "REST API for managing library books and members",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "library-api-0oix.onrender.com",
   "basePath": "/",
   "tags": [
     {
@@ -18,7 +18,6 @@
     }
   ],
   "schemes": [
-    "http",
     "https"
   ],
   "consumes": [

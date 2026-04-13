@@ -1,9 +1,11 @@
 require('dotenv').config();
 const swaggerAutogen = require('swagger-autogen')();
 
-const host = process.env.RENDER_EXTERNAL_URL
+const renderExternalUrl = process.env.RENDER_EXTERNAL_URL;
+const host = renderExternalUrl
   ? process.env.RENDER_EXTERNAL_URL.replace(/^https?:\/\//, '')
   : 'localhost:8080';
+const schemes = renderExternalUrl ? ['https'] : ['http'];
 
 const doc = {
   info: {
@@ -12,7 +14,7 @@ const doc = {
     version: '1.0.0'
   },
   host,
-  schemes: ['http', 'https'],
+  schemes,
   consumes: ['application/json'],
   produces: ['application/json'],
   tags: [
