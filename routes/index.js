@@ -3,6 +3,13 @@ const router = require('express').Router();
 router.get('/', (req, res) => {
   res.json({
     message: 'Library API server running',
+    authentication: {
+      enabled: req.app.locals.authEnabled,
+      login: 'GET /auth/login',
+      status: 'GET /auth/status',
+      profile: 'GET /auth/profile',
+      logout: 'GET /auth/logout'
+    },
     endpoints: {
       books: {
         getAll: 'GET /books',
@@ -22,6 +29,7 @@ router.get('/', (req, res) => {
   });
 });
 
+router.use('/auth', require('./auth'));
 router.use('/books', require('./books'));
 router.use('/members', require('./members'));
 

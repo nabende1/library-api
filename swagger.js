@@ -19,6 +19,10 @@ const doc = {
   produces: ['application/json'],
   tags: [
     {
+      name: 'Auth',
+      description: 'GitHub OAuth authentication endpoints'
+    },
+    {
       name: 'Books',
       description: 'Book management endpoints'
     },
@@ -74,6 +78,28 @@ const doc = {
       address: '123 Main Street, Anytown, USA',
       active: true
     },
+    AuthStatus: {
+      authenticated: true,
+      user: {
+        id: '67fabc1234def56789012345',
+        githubId: '12345678',
+        username: 'octocat',
+        displayName: 'The Octocat',
+        email: 'octocat@github.com',
+        avatarUrl: 'https://avatars.githubusercontent.com/u/583231?v=4',
+        provider: 'github'
+      },
+      loginUrl: '/auth/login'
+    },
+    AuthUser: {
+      id: '67fabc1234def56789012345',
+      githubId: '12345678',
+      username: 'octocat',
+      displayName: 'The Octocat',
+      email: 'octocat@github.com',
+      avatarUrl: 'https://avatars.githubusercontent.com/u/583231?v=4',
+      provider: 'github'
+    },
     SuccessResponse: {
       message: 'Operation completed successfully'
     },
@@ -91,6 +117,7 @@ const outputFile = './swagger-output.json';
 const endpointsFiles = [
   './server.js',
   './routes/index.js',
+  './routes/auth.js',
   './routes/books.js',
   './routes/members.js'
 ];

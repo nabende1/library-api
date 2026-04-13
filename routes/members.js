@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const membersController = require('../controllers/members');
+const { ensureAuthenticated } = require('../middleware/authenticate');
 
 /**
  * @swagger
@@ -67,10 +68,12 @@ router.get('/:id', membersController.getSingle);
  *         description: Member created successfully
  *       400:
  *         description: Validation error
+ *       401:
+ *         description: Authentication required
  *       500:
  *         description: Internal server error
  */
-router.post('/', membersController.create);
+router.post('/', ensureAuthenticated, membersController.create);
 
 /**
  * @swagger
@@ -95,12 +98,14 @@ router.post('/', membersController.create);
  *         description: Member updated successfully
  *       400:
  *         description: Validation error or invalid ID
+ *       401:
+ *         description: Authentication required
  *       404:
  *         description: Member not found
  *       500:
  *         description: Internal server error
  */
-router.put('/:id', membersController.update);
+router.put('/:id', ensureAuthenticated, membersController.update);
 
 /**
  * @swagger
@@ -119,11 +124,13 @@ router.put('/:id', membersController.update);
  *         description: Member deleted successfully
  *       400:
  *         description: Invalid ID format
+ *       401:
+ *         description: Authentication required
  *       404:
  *         description: Member not found
  *       500:
  *         description: Internal server error
  */
-router.delete('/:id', membersController.remove);
+router.delete('/:id', ensureAuthenticated, membersController.remove);
 
 module.exports = router;

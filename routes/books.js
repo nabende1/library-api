@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const booksController = require('../controllers/books');
+const { ensureAuthenticated } = require('../middleware/authenticate');
 
 /**
  * @swagger
@@ -67,10 +68,12 @@ router.get('/:id', booksController.getSingle);
  *         description: Book created successfully
  *       400:
  *         description: Validation error
+ *       401:
+ *         description: Authentication required
  *       500:
  *         description: Internal server error
  */
-router.post('/', booksController.create);
+router.post('/', ensureAuthenticated, booksController.create);
 
 /**
  * @swagger
@@ -95,12 +98,14 @@ router.post('/', booksController.create);
  *         description: Book updated successfully
  *       400:
  *         description: Validation error or invalid ID
+ *       401:
+ *         description: Authentication required
  *       404:
  *         description: Book not found
  *       500:
  *         description: Internal server error
  */
-router.put('/:id', booksController.update);
+router.put('/:id', ensureAuthenticated, booksController.update);
 
 /**
  * @swagger
@@ -119,11 +124,13 @@ router.put('/:id', booksController.update);
  *         description: Book deleted successfully
  *       400:
  *         description: Invalid ID format
+ *       401:
+ *         description: Authentication required
  *       404:
  *         description: Book not found
  *       500:
  *         description: Internal server error
  */
-router.delete('/:id', booksController.remove);
+router.delete('/:id', ensureAuthenticated, booksController.remove);
 
 module.exports = router;
