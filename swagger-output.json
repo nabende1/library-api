@@ -1,0 +1,801 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Library API",
+    "description": "REST API for managing library books and members",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Books",
+      "description": "Book management endpoints"
+    },
+    {
+      "name": "Members",
+      "description": "Library member management endpoints"
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "membershipType": {
+                  "example": "any"
+                },
+                "joinDate": {
+                  "example": "any"
+                },
+                "address": {
+                  "example": "any"
+                },
+                "active": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/books/": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "example": "any"
+                },
+                "author": {
+                  "example": "any"
+                },
+                "isbn": {
+                  "example": "any"
+                },
+                "genre": {
+                  "example": "any"
+                },
+                "publishedYear": {
+                  "example": "any"
+                },
+                "publisher": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "pageCount": {
+                  "example": "any"
+                },
+                "language": {
+                  "example": "any"
+                },
+                "available": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/books/{id}": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "example": "any"
+                },
+                "author": {
+                  "example": "any"
+                },
+                "isbn": {
+                  "example": "any"
+                },
+                "genre": {
+                  "example": "any"
+                },
+                "publishedYear": {
+                  "example": "any"
+                },
+                "publisher": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "pageCount": {
+                  "example": "any"
+                },
+                "language": {
+                  "example": "any"
+                },
+                "available": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/members/": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "membershipType": {
+                  "example": "any"
+                },
+                "joinDate": {
+                  "example": "any"
+                },
+                "address": {
+                  "example": "any"
+                },
+                "active": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/members/{id}": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "membershipType": {
+                  "example": "any"
+                },
+                "joinDate": {
+                  "example": "any"
+                },
+                "address": {
+                  "example": "any"
+                },
+                "active": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/{id}": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "membershipType": {
+                  "example": "any"
+                },
+                "joinDate": {
+                  "example": "any"
+                },
+                "address": {
+                  "example": "any"
+                },
+                "active": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Book": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string",
+          "example": "674a1b2c3d4e5f67890abcde"
+        },
+        "title": {
+          "type": "string",
+          "example": "The Great Gatsby"
+        },
+        "author": {
+          "type": "string",
+          "example": "F. Scott Fitzgerald"
+        },
+        "isbn": {
+          "type": "string",
+          "example": "978-0-7432-7356-5"
+        },
+        "genre": {
+          "type": "string",
+          "example": "Fiction"
+        },
+        "publishedYear": {
+          "type": "number",
+          "example": 1925
+        },
+        "publisher": {
+          "type": "string",
+          "example": "Scribner"
+        },
+        "description": {
+          "type": "string",
+          "example": "A novel about the American dream set in the Jazz Age."
+        },
+        "pageCount": {
+          "type": "number",
+          "example": 180
+        },
+        "language": {
+          "type": "string",
+          "example": "English"
+        },
+        "available": {
+          "type": "boolean",
+          "example": true
+        }
+      }
+    },
+    "BookInput": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "example": "The Great Gatsby"
+        },
+        "author": {
+          "type": "string",
+          "example": "F. Scott Fitzgerald"
+        },
+        "isbn": {
+          "type": "string",
+          "example": "978-0-7432-7356-5"
+        },
+        "genre": {
+          "type": "string",
+          "example": "Fiction"
+        },
+        "publishedYear": {
+          "type": "number",
+          "example": 1925
+        },
+        "publisher": {
+          "type": "string",
+          "example": "Scribner"
+        },
+        "description": {
+          "type": "string",
+          "example": "A novel about the American dream set in the Jazz Age."
+        },
+        "pageCount": {
+          "type": "number",
+          "example": 180
+        },
+        "language": {
+          "type": "string",
+          "example": "English"
+        },
+        "available": {
+          "type": "boolean",
+          "example": true
+        }
+      }
+    },
+    "Member": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string",
+          "example": "674a1b2c3d4e5f67890abcdf"
+        },
+        "firstName": {
+          "type": "string",
+          "example": "Jane"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "Doe"
+        },
+        "email": {
+          "type": "string",
+          "example": "jane.doe@example.com"
+        },
+        "phone": {
+          "type": "string",
+          "example": "555-867-5309"
+        },
+        "membershipType": {
+          "type": "string",
+          "example": "premium"
+        },
+        "joinDate": {
+          "type": "string",
+          "example": "2024-01-15"
+        },
+        "address": {
+          "type": "string",
+          "example": "123 Main Street, Anytown, USA"
+        },
+        "active": {
+          "type": "boolean",
+          "example": true
+        }
+      }
+    },
+    "MemberInput": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "example": "Jane"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "Doe"
+        },
+        "email": {
+          "type": "string",
+          "example": "jane.doe@example.com"
+        },
+        "phone": {
+          "type": "string",
+          "example": "555-867-5309"
+        },
+        "membershipType": {
+          "type": "string",
+          "example": "premium"
+        },
+        "joinDate": {
+          "type": "string",
+          "example": "2024-01-15"
+        },
+        "address": {
+          "type": "string",
+          "example": "123 Main Street, Anytown, USA"
+        },
+        "active": {
+          "type": "boolean",
+          "example": true
+        }
+      }
+    },
+    "SuccessResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "example": "Operation completed successfully"
+        }
+      }
+    },
+    "CreatedResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "example": "Resource created successfully"
+        },
+        "id": {
+          "type": "string",
+          "example": "674a1b2c3d4e5f67890abcde"
+        }
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string",
+          "example": "Error message here"
+        }
+      }
+    }
+  }
+}
